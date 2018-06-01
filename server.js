@@ -6,9 +6,8 @@ let port = 5001;
 createServer(hostname, port);
 
 function createServer(hostname, port) {
-    const server = net.createServer((req, res) => {
-        res.end(`Server ${port} reporting for duty.`);
-        console.log(`Server ${port} reporting for duty.`);
+    const server = net.createServer((socket) => {
+        console.log(`Server ${port} was pinged.`);
     });
 
     server.listen(port, hostname, () => {
